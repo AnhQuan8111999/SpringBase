@@ -1,0 +1,28 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 782184675134-ls7vk4q3aoo1fhols0ajio0oen7le2uq.apps.googleusercontent.com
+            clientSecret: RossQWf6bpGXhocqCbjTYUMO
+            scope:
+              - email
+              - profile
+          facebook:
+            clientId: 1492511091107685
+            clientSecret: 7a397f4f2ca865ab512d6b85314f4802
+            redirectUri: https://project-base-web.herokuapp.com/login/oauth2/code/google
+            scope:
+              - email
+              - public_profile
+app:
+  auth:
+    tokenSecret: 123456
+    tokenExpirationMsec: 864000000
+  oauth2:
+    # After successfully authenticating with the OAuth2 Provider,
+    # we'll be generating an auth token for the user and sending the token to the
+    # redirectUri mentioned by the frontend client in the /oauth2/authorize request.
+    authorizedRedirectUris:
+      - http://localhost:3000/oauth2/redirect
